@@ -1,0 +1,51 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/food_db
+    username: postgres
+    password: momen
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 8090
+
+---
+spring:
+  boot:
+    admin:
+      api-path: /instances
+      url: http://localhost:8090
+      client:
+        url: http://localhost:8090
+
+---
+spring:
+  devtools:
+    restart:
+      quiet-period: 1000
+      poll-interval: 1100
+
+
+---
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    health:
+      show-details: always
+
+
+---
+keycloak:
+  realm: foodrealm
+  auth-server-url: http://localhost:8080
+  resource: foodclient
+  public-client: true
+  bearer-only: true
