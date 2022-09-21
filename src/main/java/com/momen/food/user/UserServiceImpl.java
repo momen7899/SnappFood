@@ -1,5 +1,6 @@
 package com.momen.food.user;
 
+import com.momen.food.common.KeyClockManager;
 import com.momen.food.common.exception.NotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,9 +13,11 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository repository;
+    private final KeyClockManager clockManager = new KeyClockManager();
 
     @Override
     public User save(User user) {
+//        clockManager.saveUserInKeyClock(user.getPhoneNumber());
         return repository.save(user);
     }
 
