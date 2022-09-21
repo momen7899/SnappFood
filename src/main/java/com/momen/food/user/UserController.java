@@ -1,7 +1,9 @@
 package com.momen.food.user;
 
 
+import io.micrometer.core.annotation.Timed;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +23,6 @@ public class UserController {
     @PostMapping
     @RolesAllowed({"admin", "supplier", "user"})
     public ResponseEntity<Void> save(@RequestBody UserDTO userDTO) {
-        System.out.println(userDTO);
         User user = mapper.toUser(userDTO);
         service.save(user);
         return ResponseEntity.status(HttpStatus.CREATED).build();
@@ -43,6 +44,7 @@ public class UserController {
 
 
     @GetMapping()
+    @Timed("user.getAll")
     public ResponseEntity<List<UserDTO>> getAll() {
         List<User> users = service.getAll();
         List<UserDTO> usersDto = mapper.toUserDTOs(users);

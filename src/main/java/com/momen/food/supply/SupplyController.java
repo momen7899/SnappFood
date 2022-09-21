@@ -1,5 +1,6 @@
 package com.momen.food.supply;
 
+import io.micrometer.core.annotation.Timed;
 import lombok.AllArgsConstructor;
 import lombok.val;
 import org.springframework.http.HttpStatus;
@@ -45,6 +46,7 @@ public class SupplyController {
     }
 
     @GetMapping("/SupplyCategory/{id}")
+    @Timed("supply.getAll")
     public ResponseEntity<List<SupplyDTO>> getSuppliesByCategoryId(@PathVariable Long id) {
         val supplyDTOS = mapper.toSupplierDTOs(service.findAllBySupplyCategory(id));
 

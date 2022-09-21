@@ -1,5 +1,6 @@
 package com.momen.food.supplier_category;
 
+import io.micrometer.core.annotation.Timed;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,6 +38,7 @@ public class SupplierCategoryController {
     }
 
     @GetMapping
+    @Timed("supplier_category.getAll")
     public ResponseEntity<List<SupplierCategoryDTO>> getSupplierCategory() {
         List<SupplierCategoryDTO> categoryDTOS = mapper.toSupplierCategoryDTOs(service.findAll());
 

@@ -49,3 +49,28 @@ keycloak:
   resource: foodclient
   public-client: true
   bearer-only: true
+
+---
+logging:
+  file:
+    path: ./
+    name: logfile.log
+
+---
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    health:
+      show-details: always
+    exposure.include: metrics,prometheus
+    exposure.exclude:
+
+  metrics:
+    tags:
+      application: MonitoringFoodSpringDemoProject
+    enable:
+      jvm: true

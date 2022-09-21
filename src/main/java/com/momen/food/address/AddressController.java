@@ -1,5 +1,6 @@
 package com.momen.food.address;
 
+import io.micrometer.core.annotation.Timed;
 import lombok.AllArgsConstructor;
 import lombok.val;
 import org.springframework.http.HttpStatus;
@@ -41,6 +42,7 @@ public class AddressController {
     }
 
     @GetMapping
+    @Timed("address.getAll")
     private ResponseEntity<List<AddressDTO>> findAll() {
         return ResponseEntity.ok(mapper.toAddressDTOs(service.findAll()));
     }

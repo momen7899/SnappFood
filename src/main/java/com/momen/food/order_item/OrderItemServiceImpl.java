@@ -1,5 +1,6 @@
 package com.momen.food.order_item;
 
+import com.momen.food.aop.LogExecutionTime;
 import com.momen.food.common.exception.NotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -45,6 +46,7 @@ public class OrderItemServiceImpl implements OrderItemService {
     }
 
     @Override
+    @LogExecutionTime
     public List<OrderItem> findAll() {
         return (List<OrderItem>) repository.findAll();
     }

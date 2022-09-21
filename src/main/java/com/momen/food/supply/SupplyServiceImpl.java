@@ -1,5 +1,6 @@
 package com.momen.food.supply;
 
+import com.momen.food.aop.LogExecutionTime;
 import com.momen.food.common.exception.NotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -40,11 +41,13 @@ public class SupplyServiceImpl implements SupplyService {
     }
 
     @Override
+    @LogExecutionTime
     public List<Supply> findAll() {
         return (List<Supply>) repository.findAll();
     }
 
     @Override
+    @LogExecutionTime
     public List<Supply> findAllBySupplyCategory(Long supplyCategoryId) {
         return repository.findAllByCategory_Id(supplyCategoryId);
     }

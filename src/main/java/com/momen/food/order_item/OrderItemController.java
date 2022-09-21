@@ -1,5 +1,6 @@
 package com.momen.food.order_item;
 
+import io.micrometer.core.annotation.Timed;
 import lombok.AllArgsConstructor;
 import lombok.val;
 import org.springframework.http.HttpStatus;
@@ -42,6 +43,7 @@ public class OrderItemController {
     }
 
     @GetMapping
+    @Timed("order_item.getAll")
     public ResponseEntity<List<OrderItemDTO>> findAll() {
         val items = service.findAll();
         return ResponseEntity.ok(mapper.toOrderItemDTOs(items));

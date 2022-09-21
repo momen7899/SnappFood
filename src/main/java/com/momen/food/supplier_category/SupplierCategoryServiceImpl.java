@@ -1,5 +1,6 @@
 package com.momen.food.supplier_category;
 
+import com.momen.food.aop.LogExecutionTime;
 import com.momen.food.common.exception.NotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.val;
@@ -43,6 +44,7 @@ public class SupplierCategoryServiceImpl implements SupplierCategoryService {
     }
 
     @Override
+    @LogExecutionTime
     public List<SupplierCategory> findAll() {
         return (List<SupplierCategory>) repository.findAll();
     }

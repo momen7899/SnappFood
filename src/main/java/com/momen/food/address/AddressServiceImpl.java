@@ -1,5 +1,6 @@
 package com.momen.food.address;
 
+import com.momen.food.aop.LogExecutionTime;
 import com.momen.food.common.exception.NotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.val;
@@ -44,6 +45,7 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
+    @LogExecutionTime
     public List<Address> findAll() {
         return (List<Address>) repository.findAll();
     }
