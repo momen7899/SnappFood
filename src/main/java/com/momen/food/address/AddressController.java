@@ -17,33 +17,33 @@ public class AddressController {
     private final AddressMapper mapper;
 
     @PostMapping
-    private ResponseEntity<Void> save(@RequestBody AddressDTO addressDTO) {
+    public ResponseEntity<Void> save(@RequestBody AddressDTO addressDTO) {
         val address = mapper.toAddress(addressDTO);
         service.save(address);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PutMapping
-    private ResponseEntity<AddressDTO> update(@RequestBody AddressDTO addressDTO) {
+    public ResponseEntity<AddressDTO> update(@RequestBody AddressDTO addressDTO) {
         val address = mapper.toAddress(addressDTO);
         return ResponseEntity.ok(mapper.toAddressDto(service.update(address)));
     }
 
     @DeleteMapping("{id}")
-    private ResponseEntity<Void> delete(@PathVariable Long id) {
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
     @GetMapping("{id}")
-    private ResponseEntity<AddressDTO> findById(@PathVariable Long id) {
+    public ResponseEntity<AddressDTO> findById(@PathVariable Long id) {
         val address = service.findById(id);
         return ResponseEntity.ok(mapper.toAddressDto(address));
     }
 
     @GetMapping
     @Timed("address.getAll")
-    private ResponseEntity<List<AddressDTO>> findAll() {
+    public ResponseEntity<List<AddressDTO>> findAll() {
         return ResponseEntity.ok(mapper.toAddressDTOs(service.findAll()));
     }
 

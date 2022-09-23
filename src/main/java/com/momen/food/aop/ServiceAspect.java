@@ -14,14 +14,12 @@ public class ServiceAspect {
     @Before(value = "execution(* com.momen.food.*.*Service.*(..)) && args(id)")
     public void beforeAdvice(JoinPoint joinPoint, Long id) {
         String print = "Before method:" + joinPoint.getSignature() + "\n" + "Get with  id - " + id;
-        System.out.println(print);
         log.info(print);
     }
 
     @After(value = "execution(* com.momen.food.*.*Service.*(..)) && args(id)")
     public void afterAdvice(JoinPoint joinPoint, Long id) {
         String print = "After method:" + joinPoint.getSignature() + "\n" + "Get with  id - " + id;
-        System.out.println(print);
         log.info(print);
     }
 }

@@ -27,7 +27,6 @@ public class DemoMetrics {
             throw new IllegalArgumentException("max must be greater than min");
         }
 
-        Random r = new Random();
-        return r.nextInt((max - min) + 1) + min;
+        return new Random().nextInt((max - min) + 1) + min;
     }
 }

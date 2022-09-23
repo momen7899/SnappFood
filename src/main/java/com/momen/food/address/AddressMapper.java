@@ -6,7 +6,6 @@ import org.geolatte.geom.Point;
 import org.geolatte.geom.crs.CoordinateReferenceSystems;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
 import org.mapstruct.Named;
 
 import java.util.List;
@@ -14,12 +13,10 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface AddressMapper {
 
-    @Mappings({
-            @Mapping(source = "location", target = "location", qualifiedByName = "locationDtoToLocation")})
+    @Mapping(source = "location", target = "location", qualifiedByName = "locationDtoToLocation")
     Address toAddress(AddressDTO addressDTO);
 
-    @Mappings({
-            @Mapping(source = "location", target = "location", qualifiedByName = "locationToLocationDTO")})
+    @Mapping(source = "location", target = "location", qualifiedByName = "locationToLocationDTO")
     AddressDTO toAddressDto(Address address);
 
     List<AddressDTO> toAddressDTOs(List<Address> places);

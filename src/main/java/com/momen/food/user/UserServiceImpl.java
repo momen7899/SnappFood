@@ -4,7 +4,6 @@ import com.momen.food.aop.LogExecutionTime;
 import com.momen.food.common.KeyClockManager;
 import com.momen.food.common.exception.NotFoundException;
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
