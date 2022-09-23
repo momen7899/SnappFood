@@ -12,9 +12,11 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "supplier_category_tb")
+@Table(name = SupplierCategory.TABLE_NAME)
 @Audited
 public class SupplierCategory extends BaseEntity {
+
+    public static final String TABLE_NAME = "supplier_category_tb";
 
     private String name;
     private String icon;

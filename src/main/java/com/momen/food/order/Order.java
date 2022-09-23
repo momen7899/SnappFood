@@ -16,9 +16,10 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "order_tb")
+@Table(name = Order.TABLE_NAME)
 @Audited
 public class Order extends BaseEntity {
+    public static final String TABLE_NAME = "order_tb";
 
     private OrderStatus orderStatus;
     private BigDecimal totalPrice;

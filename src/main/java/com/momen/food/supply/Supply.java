@@ -15,9 +15,11 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "supplier_tb")
+@Table(name = Supply.TABLE_NAME)
 @Audited
 public class Supply extends BaseEntity {
+    public static final String TABLE_NAME = "supplier_tb";
+
     private String image;
     private String title;
     private String details;

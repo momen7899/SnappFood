@@ -12,9 +12,12 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "user_tb")
+@Table(name = User.TABLE_NAME)
 @Audited
 public class User extends BaseEntity {
+
+    public static final String TABLE_NAME = "user_tb";
+
     private String name;
     private String phoneNumber;
 

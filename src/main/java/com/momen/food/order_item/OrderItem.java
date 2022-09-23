@@ -12,9 +12,11 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name = "order_item_tb")
+@Table(name = OrderItem.TABLE_NAME)
 @Audited
 public class OrderItem extends BaseEntity {
+    public static final String TABLE_NAME = "order_item_tb";
+
     private Integer count;
     @ManyToOne
     private Supply supply;

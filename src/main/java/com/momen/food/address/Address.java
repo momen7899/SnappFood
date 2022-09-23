@@ -16,9 +16,10 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "address_tb")
+@Table(name = Address.TABLE_NAME)
 @Audited
 public class Address extends BaseEntity {
+    public static final String TABLE_NAME = "address_tb";
 
     private String title;
     private String address;

@@ -3,7 +3,6 @@ package com.momen.food.user;
 
 import io.micrometer.core.annotation.Timed;
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +20,7 @@ public class UserController {
     private UserMapper mapper;
 
     @PostMapping
-    @RolesAllowed({"admin", "supplier", "user"})
+    @RolesAllowed("user")
     public ResponseEntity<Void> save(@RequestBody UserDTO userDTO) {
         User user = mapper.toUser(userDTO);
         service.save(user);
@@ -29,6 +28,7 @@ public class UserController {
     }
 
     @PutMapping
+    @RolesAllowed("user")
     public ResponseEntity<UserDTO> update(@RequestBody UserDTO userDTO) {
         User user = mapper.toUser(userDTO);
         val dto = mapper.toUserDTO(service.update(user));
@@ -36,6 +36,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
+    @RolesAllowed({"admin", "supplier", "user"})
     public ResponseEntity<UserDTO> getById(@PathVariable Long id) {
         User user = service.getById(id);
         UserDTO userDTO = mapper.toUserDTO(user);
@@ -45,6 +46,7 @@ public class UserController {
 
     @GetMapping()
     @Timed("user.getAll")
+    @RolesAllowed("admin")
     public ResponseEntity<List<UserDTO>> getAll() {
         List<User> users = service.getAll();
         List<UserDTO> usersDto = mapper.toUserDTOs(users);
@@ -53,6 +55,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
+    @RolesAllowed({"admin"})
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.ok().build();
