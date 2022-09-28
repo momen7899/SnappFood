@@ -20,7 +20,7 @@ public class UserController {
     private UserMapper mapper;
 
     @PostMapping
-    @RolesAllowed("user")
+    @RolesAllowed({"admin", "user"})
     public ResponseEntity<Void> save(@RequestBody UserDTO userDTO) {
         User user = mapper.toUser(userDTO);
         service.save(user);
@@ -28,7 +28,7 @@ public class UserController {
     }
 
     @PutMapping
-    @RolesAllowed("user")
+    @RolesAllowed({"admin", "user"})
     public ResponseEntity<UserDTO> update(@RequestBody UserDTO userDTO) {
         User user = mapper.toUser(userDTO);
         val dto = mapper.toUserDTO(service.update(user));

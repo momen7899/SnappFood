@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @RestController
@@ -17,6 +18,7 @@ public class SupplyCategoryController {
 
 
     @PostMapping
+    @RolesAllowed({"supplier"})
     public ResponseEntity<Void> saveSupplyCategory(@RequestBody SupplyCategoryDTO dto) {
         SupplyCategory category = mapper.toSupplyCategory(dto);
         service.save(category);
@@ -24,6 +26,7 @@ public class SupplyCategoryController {
     }
 
     @PutMapping
+    @RolesAllowed({"supplier"})
     public ResponseEntity<SupplyCategoryDTO> updateSupplierCategory(@RequestBody SupplyCategoryDTO dto) {
         SupplyCategory category = mapper.toSupplyCategory(dto);
         SupplyCategoryDTO categoryDTO = mapper.toSupplyCategoryDTO(service.update(category));
@@ -31,6 +34,7 @@ public class SupplyCategoryController {
     }
 
     @DeleteMapping("{id}")
+    @RolesAllowed({"supplier"})
     public ResponseEntity<SupplyCategoryDTO> deleteSupplierCategory(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
@@ -38,6 +42,7 @@ public class SupplyCategoryController {
 
     @GetMapping
     @Timed("supply_category.getAll")
+    @RolesAllowed({"admin", "supplier"})
     public ResponseEntity<List<SupplyCategoryDTO>> getSupplierCategory() {
         List<SupplyCategoryDTO> categoryDTOS = mapper.toSupplyCategoryDTOs(service.findAll());
 

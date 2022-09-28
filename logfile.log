@@ -257,3 +257,32 @@ java.lang.IllegalStateException: Management-specific server address cannot be co
 2022-09-21 19:40:57.237  INFO 10188 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-09-21 19:40:57.240  INFO 10188 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-09-21 19:40:57.258  INFO 10188 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-23 19:28:17.412  INFO 9416 --- [main] com.momen.food.FoodApplication           : Starting FoodApplication using Java 17.0.1 on DESKTOP-SPD2JRC with PID 9416 (F:\Project\Java Spring\hZandi\Food\target\classes started by momen in F:\Project\Java Spring\hZandi\Food)
+2022-09-23 19:28:17.417  INFO 9416 --- [main] com.momen.food.FoodApplication           : No active profile set, falling back to 1 default profile: "default"
+2022-09-23 19:28:20.015  INFO 9416 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-23 19:28:20.291  INFO 9416 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 212 ms. Found 8 JPA repository interfaces.
+2022-09-23 19:28:21.920  INFO 9416 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2022-09-23 19:28:21.930  INFO 9416 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-23 19:28:21.930  INFO 9416 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-23 19:28:22.093  INFO 9416 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-23 19:28:22.093  INFO 9416 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4489 ms
+2022-09-23 19:28:22.617  WARN 9416 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-23 19:28:22.718  INFO 9416 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-23 19:28:22.808  INFO 9416 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-23 19:28:23.030  INFO 9416 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-23 19:28:23.158  INFO 9416 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-23 19:28:23.561  INFO 9416 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-23 19:28:23.583  INFO 9416 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-09-23 19:28:23.641  INFO 9416 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
+2022-09-23 19:28:26.022  INFO 9416 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-23 19:28:26.031  INFO 9416 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-23 19:28:27.604  INFO 9416 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4d45b457, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5c1605e2, org.springframework.security.web.context.SecurityContextPersistenceFilter@3741a170, org.springframework.security.web.header.HeaderWriterFilter@4d5d6297, org.keycloak.adapters.springsecurity.filter.KeycloakPreAuthActionsFilter@2b20caed, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticationProcessingFilter@54519d74, org.springframework.security.web.authentication.logout.LogoutFilter@23674e3d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6c5e6da, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@283074e8, org.keycloak.adapters.springsecurity.filter.KeycloakSecurityContextRequestFilter@69eb1f23, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticatedActionsFilter@2c9af700, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@71d3dfd5, org.springframework.security.web.session.SessionManagementFilter@709c41da, org.springframework.security.web.access.ExceptionTranslationFilter@27103726, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1bfa398e]
+2022-09-23 19:28:29.731  INFO 9416 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
+2022-09-23 19:28:29.829  INFO 9416 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2022-09-23 19:28:29.853  INFO 9416 --- [main] com.momen.food.FoodApplication           : Started FoodApplication in 13.161 seconds (JVM running for 15.751)
+2022-09-23 19:28:30.291  INFO 9416 --- [RMI TCP Connection(4)-10.13.13.25] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-23 19:28:30.292  INFO 9416 --- [RMI TCP Connection(4)-10.13.13.25] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-23 19:28:30.294  INFO 9416 --- [RMI TCP Connection(4)-10.13.13.25] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-09-23 19:32:40.996  INFO 9416 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-23 19:32:40.999  INFO 9416 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-23 19:32:41.014  INFO 9416 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
